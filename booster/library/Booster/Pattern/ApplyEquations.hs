@@ -349,7 +349,7 @@ iterateEquations direction preference startTerm = do
             resetChanged
             -- evaluate functions and simplify (recursively at each level)
             newTerm <-
-                let simp = cached Equations $ traverseTerm direction simp (applyHooksAndEquations preference)
+                let simp = traverseTerm direction simp (applyHooksAndEquations preference)
                  in simp llvmResult
             changeFlag <- getChanged
             if changeFlag
